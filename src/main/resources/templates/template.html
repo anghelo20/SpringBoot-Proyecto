@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"/>
+<head>
+<meta charset="UTF-8" />
+<style>
+* {
+	box-sizing: border-box;
+}
+
+h1, h2, h5 {
+	text-align: center;
+	font-family: Arial, sans-serif
+}
+
+h5 {
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 100;
+}
+
+img {
+	position: absolute;
+	color: gray;
+	width: 120px;
+	top: 0;
+	left: 0;
+}
+
+.memo-h1, .memo-h2 {
+	margin: 0;
+	padding: 0;
+}
+
+.memo-h2 {
+	padding-top: 8px
+}
+
+.memo-h1 {
+	padding-top: 30px;
+	font-size: 26px;
+}
+
+.memo-h2 {
+	font-size: 26px;
+}
+
+.header-pdf {
+	padding-top: px
+}
+
+.receipt-header {
+	width: 100%;
+}
+
+.table-info {
+	width: 100%;
+}
+
+.receipt {
+	width: 100%;
+}
+
+.header-table-info {
+	font-family: Arial, sans-serif;
+	text-align: center;
+	padding: 8px 0;
+	text-decoration: underline;
+	text-align: center;
+}
+
+td, th {
+	font-family: Arial, sans-serif;
+}
+
+.memo-foot {
+	font-family: Arial, sans-serif;
+	font-weight: 100;
+}
+
+.pdf-parag {
+	font-family: Arial, sans-serif;
+	font-size: 15px;
+	text-align: justify;
+	line-height: 20px
+}
+
+.info-td {
+	font-family: Arial, sans-serif;
+	width: 30%;
+	padding: 8px 0;
+	width: 30%;
+}
+
+.info-to {
+	font-family: Arial, sans-serif;
+	text-align: justify;
+	font-weight: bold;
+}
+
+.receipt, .receipt th, .receipt td {
+	font-family: Arial, sans-serif;
+	border: 1px solid #25a7e7;
+	border-collapse: collapse;
+}
+
+.receipt th {
+	font-family: Arial, sans-serif;
+	background-color: #25a7e7;
+	color: white;
+}
+
+.total {
+	text-align: right;
+}
+</style>
+</head>
+<body>
+	<img
+		src="https://seeklogo.com/images/P/poder-judicial-peru-logo-4159895347-seeklogo.com.png" />
+	<div class="header-pdf">
+		<h2 class="memo-h1">PODER JUDICIAL DEL PERU</h2>
+		<h1 class="memo-h2">CORTE SUPERIOR DE JUSTICIA DEL SANTA</h1>
+	</div>
+	<hr></hr>
+	<div class="info-pdf">
+
+		<table class="table-info">
+			<tr>
+				<th class="header-table-info" colspan="2" th:text="'MEMORANDUM
+					N° '+${correlativo}+'-2022-NCPP-CSJSA-PJ'"></th>
+			</tr>
+			<tr>
+				<td class="info-td">A</td>
+				<td class="info-to" th:text="': ' + ${person.nombre}+' ' + ${person.apellido_P}+' ' +${person.apellido_M} ">:ABG. IVAN TORRES FUENTES, ASISTENTE
+					JUDICIAL DE AUIDIENCIAS DE LOS JUZGADOS DE INVESTIGACION DE LA
+					CORTE SUPERIOR DE JUSTICIA DEL SANTA</td>
+				<!-- <td th:text="': ' + ${customer.companyName}"></td> -->
+			</tr>
+			<tr>
+				<td class="info-td">ASUNTO</td>
+				<td class="info-to" th:text="': ' + ${memo.asunto}"></td>
+				<!-- <td th:text="': ' + ${customer.companyName}"></td> -->
+			</tr>
+			<tr>
+				<td class="info-td">FECHA</td>
+				<td class="info-to" th:text="': Nuevo Chimbote, ' + ${date}"></td>
+				<!-- <td th:text="': ' + ${customer.companyName}"></td> -->
+			</tr>
+		</table>
+	</div>
+	<hr></hr>
+	<div class="memo-pdf">
+		<p class="pdf-parag" th:text="${memo.razon}"></p>
+		<h4 class="memo-foot">Me despido de usted testimoniandole mi
+			estima personal</h4>
+		<h5>Atentamenete</h5>
+		<div class="digital">Firma digital</div>
+	</div>
+	<div>
+		
+	</div>
+
+	
+</body>
+</html>

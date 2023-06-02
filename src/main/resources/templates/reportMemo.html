@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"/>
+<head>
+<meta charset="UTF-8"/>
+<style>
+
+
+table{
+  text-align: center;
+}
+
+.table-title h2{
+font-family: Arial, Helvetica, sans-serif;
+    font-size:1.4rem;
+text-align:center;}
+
+#report-table {
+  font-family: Arial, Helvetica, sans-serif;
+    font-size:12.4px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#report-table td, #report-table th {
+  border: 1px solid #ddd;
+  padding: 8px 0px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+#report-table tr:nth-child(even){background-color: #f2f2f2;}
+
+#report-table tr:hover {background-color: #ddd;}
+
+#report-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}
+
+
+
+</style>
+</head>
+<body>
+<div class="table-title">
+<h2>Lista de Memos</h2>
+</div>
+<table id="report-table">
+    <tr>
+        <th>Nº memo</th>
+        <th>Correo</th>
+        <th>Dni</th>
+        <th>Estado</th>
+        <th>Fecha</th>
+    </tr>
+    <tr th:each="item, iterStat: ${reportList}">
+        <td th:text="${item.n_memo}"></td>
+        <td th:text="${item.correo}"></td>
+        <td th:text="${item.dni}"></td>
+        <td th:text="${item.estado} == 1 ? 'Activo' : 'Inactivo'"></td>
+        <td th:text="${item.fecha_Accion}"></td>
+    </tr>
+
+</table>
+</body>
+</html>
